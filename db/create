@@ -1,0 +1,13 @@
+CREATE TABLE IF NOT EXISTS devices (
+    mac TEXT NOT NULL PRIMARY KEY,
+    ip TEXT NOT NULL,
+    name TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS pins (
+    mac TEXT NOT NULL REFERENCES devices(mac),
+    pin INTEGER NOT NULL,
+    name TEXT,
+    desc TEXT,
+    PRIMARY KEY (mac, pin)
+);
